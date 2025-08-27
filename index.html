@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagalnew - Download Free MP3 Songs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #1a1a2e;
+            --secondary-bg: #16213e;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-color: #fff;
+            --accent-color: #4cc9f0;
+            --accent-gradient: linear-gradient(45deg, #4361ee, #4cc9f0);
+            --danger-color: #f72585;
+            --header-height: 70px;
+        }
+
+        .light-theme {
+            --primary-bg: #f0f2f5;
+            --secondary-bg: #ffffff;
+            --card-bg: rgba(0, 0, 0, 0.05);
+            --text-color: #333;
+            --accent-color: #4361ee;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(26, 26, 46, 0.95);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .light-theme header {
+            background: rgba(240, 242, 245, 0.95);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 28px;
+            color: var(--accent-color);
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+
+        .top-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: 20px;
+        }
+
+        .action-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .light-theme .action-btn {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .action-btn:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-size: 14px;
+        }
+
+        .btn-login {
+            background: transparent;
+            border: 2px solid #4361ee;
+            color: #4361ee;
+        }
+
+        .btn-signup {
+            background: var(--accent-gradient);
+            color: white;
+        }
+
+        .btn-admin {
+            background: linear-gradient(45deg, #f72585, #b5179e);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3') no-repeat center center/cover;
+            background-blend-mode: overlay;
+            background-color: rgba(26, 26, 46, 0.8);
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 40px;
+        }
+
+        .light-theme .hero {
+            background-color: rgba(240, 242, 245, 0.8);
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #4cc9f0, #f72585);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #d0d0e2;
+        }
+
+        .light-theme .hero p {
+            color: #666;
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: var(--text-color);
+            font-size: 16px;
+            padding-left: 50px;
+        }
+
+        .light-theme .search-box input {
+            background: rgba(0, 0, 0, 0.05);
+            color: #333;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-color);
+            font-size: 20px;
+        }
+
+        /* Categories Section */
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            height: 4px;
+            background: var(--accent-gradient);
+            border-radius: 2px;
+        }
+
+        .categories {
+            padding: 40px 0;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            background: rgba(74, 107, 238, 0.2);
+        }
+
+        .category-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .category-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* Songs Section */
+        .songs {
+            padding: 40px 0;
+        }
+
+        .song-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .song-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .song-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .song-image {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .song-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .song-card:hover .song-image img {
+            transform: scale(1.1);
+        }
+
+        .song-image::after {
+            content: '\f06e';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 30px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .song-image:hover::after {
+            opacity: 1;
+        }
+
+        .song-details {
+            padding: 20px;
+        }
+
+        .song-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .song-artist, .song-stars, .song-category {
+            color: #a0a0c0;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .light-theme .song-artist, 
+        .light-theme .song-stars,
+        .light-theme .song-category {
+            color: #666;
+        }
+
+        .song-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .download-btn, .edit-btn, .listen-btn {
+            flex: 1;
+            padding: 12px;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .download-btn {
+            background: var(--accent-gradient);
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(45deg, #3a56d4, #43bcdb);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .listen-btn {
+            background: linear-gradient(45deg, #f72585, #b5179e);
+        }
+
+        .listen-btn:hover {
+            background: linear-gradient(45deg, #e01a76, #9c1491);
+            box-shadow: 0 5px 15px rgba(247, 37, 133, 0.3);
+        }
+
+        .edit-btn {
+            background: linear-gradient(45deg, #7209b7, #3a0ca3);
+            display: none;
+        }
+
+        .edit-btn:hover {
+            background: linear-gradient(45deg, #5a08a0, #2c0883);
+            box-shadow: 0 5px 15px rgba(114, 9, 183, 0.3);
+        }
+
+        .admin-mode .edit-btn {
+            display: block;
+        }
+
+        .add-song-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #f72585, #b5179e);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: none;
+        }
+
+        .admin-mode .add-song-btn {
+            display: block;
+        }
+
+        .add-song-btn:hover {
+            background: linear-gradient(45deg, #e01a76, #9c1491);
+            box-shadow: 0 5px 15px rgba(247, 37, 133, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Audio Player */
+        .audio-player {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            padding: 15px 20px;
+            box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 1000;
+        }
+
+        .light-theme .audio-player {
+            background: rgba(240, 242, 245, 0.95);
+        }
+
+        .audio-player.active {
+            display: block;
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .player-info {
+            flex: 1;
+        }
+
+        .player-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .player-artist {
+            font-size: 14px;
+            color: #a0a0c0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .light-theme .player-artist {
+            color: #666;
+        }
+
+        .player-buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .player-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .player-btn:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--primary-bg);
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .light-theme .modal-content {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: #a0a0c0;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--text-color);
+        }
+
+        .auth-form h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 28px;
+            background: linear-gradient(45deg, #4cc9f0, #f72585);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-color);
+            font-size: 16px;
+        }
+
+        .light-theme .form-group input, 
+        .light-theme .form-group select,
+        .light-theme .form-group textarea {
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.05);
+            color: #333;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+        }
+
+        .auth-submit {
+            width: 100%;
+            padding: 15px;
+            background: var(--accent-gradient);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .auth-submit:hover {
+            background: linear-gradient(45deg, #3a56d4, #43bcdb);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-cancel {
+            flex: 1;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-color);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .light-theme .btn-cancel {
+            background: rgba(0, 0, 0, 0.05);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-cancel:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .light-theme .btn-cancel:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Image Preview Modal */
+        .image-preview {
+            text-align: center;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #0d0d1a;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .light-theme footer {
+            background: #e6e9ef;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: #a0a0c0;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+        }
+
+        .light-theme .footer-column a {
+            color: #666;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0a0c0;
+        }
+
+        .light-theme .copyright {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: #666;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: var(--primary-bg);
+            color: var(--text-color);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transform: translateY(-100px);
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .category-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+            
+            .song-list {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .auth-buttons {
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .top-actions {
+                margin-left: 0;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .song-actions {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 28px;
+            }
+            
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-music"></i>
+                <h1>Pagalnew.com</h1>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#" data-category="all">All Songs</a></li>
+                    <li><a href="#" data-category="bollywood">Bollywood</a></li>
+                    <li><a href="#" data-category="punjabi">Punjabi</a></li>
+                    <li><a href="#" data-category="marathi">Marathi</a></li>
+                    <li><a href="#" data-category="haryana">Haryana</a></li>
+                    <li><a href="#" data-category="bhojpuri">Bhojpuri</a></li>
+                </ul>
+            </nav>
+            
+            <div class="auth-buttons">
+                <div class="top-actions">
+                    <button class="action-btn" id="themeToggle" title="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="action-btn" id="shareBtn" title="Share website">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <button class="action-btn" id="rateBtn" title="Rate us">
+                        <i class="fas fa-star"></i>
+                    </button>
+                    <button class="action-btn" id="followBtn" title="Follow us">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                
+                <div class="user-info" id="userInfo" style="display: none;">
+                    <div class="user-avatar" id="userAvatar">A</div>
+                    <span id="userName">Admin</span>
+                    <button class="btn btn-admin" id="adminBtn">Admin Mode: OFF</button>
+                    <button class="btn btn-login" id="logoutBtn">Logout</button>
+                </div>
+                <button class="btn btn-login" id="loginBtn">Login</button>
+                <button class="btn btn-signup" id="signupBtn">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Download Free MP3 Songs</h2>
+            <p>Discover and download your favorite songs from various genres and languages in high quality.</p>
+            
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search for songs, artists, or albums...">
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Categories Section -->
+        <section class="categories">
+            <h2 class="section-title">Music Categories</h2>
+            
+            <div class="category-grid">
+                <div class="category-card" data-category="bollywood">
+                    <div class="category-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>Bollywood</h3>
+                </div>
+                
+                <div class="category-card" data-category="punjabi">
+                    <div class="category-icon">
+                        <i class="fas fa-guitar"></i>
+                    </div>
+                    <h3>Punjabi</h3>
+                </div>
+                
+                <div class="category-card" data-category="marathi">
+                    <div class="category-icon">
+                        <i class="fas fa-drum"></i>
+                    </div>
+                    <h3>Marathi</h3>
+                </div>
+                
+                <div class="category-card" data-category="haryana">
+                    <div class="category-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3>Haryana</h3>
+                </div>
+                
+                <div class="category-card" data-category="bhojpuri">
+                    <div class="category-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Bhojpuri</h3>
+                </div>
+                
+                <div class="category-card" data-category="indipop">
+                    <div class="category-icon">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <h3>Indipop</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Songs Section -->
+        <section class="songs">
+            <h2 class="section-title">Latest Release MP3 Songs</h2>
+            
+            <div class="song-list" id="songList">
+                <!-- Songs will be dynamically added here -->
+            </div>
+
+            <button class="add-song-btn" id="addSongBtn">+ Add New Song</button>
+        </section>
+    </main>
+
+    <!-- Audio Player -->
+    <div class="audio-player" id="audioPlayer">
+        <div class="player-controls">
+            <div class="player-info">
+                <div class="player-title" id="playerTitle">Song Title</div>
+                <div class="player-artist" id="playerArtist">Artist Name</div>
+            </div>
+            <div class="player-buttons">
+                <button class="player-btn" id="prevBtn">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button class="player-btn" id="playPauseBtn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="player-btn" id="nextBtn">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button class="player-btn" id="closePlayerBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            
+            <div class="auth-form">
+                <h2>Login to Your Account</h2>
+                
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" placeholder="Enter your username">
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password">
+                </div>
+                
+                <button class="auth-submit" id="loginSubmit">Login</button>
+                
+                <div class="auth-switch">
+                    Don't have an account? <a href="#" id="switchToSignup">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            
+            <div class="auth-form">
+                <h2>Create New Account</h2>
+                
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-username">Username</label>
+                    <input type="text" id="signup-username" placeholder="Choose a username">
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" placeholder="Create a password">
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-dob">Date of Birth</label>
+                    <input type="date" id="signup-dob">
+                </div>
+                
+                <button class="auth-submit" id="signupSubmit">Create Account</button>
+                
+                <div class="auth-switch">
+                    Already have an account? <a href="#" id="switchToLogin">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Song Modal -->
+    <div class="modal" id="songModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            
+            <div class="auth-form">
+                <h2 id="songModalTitle">Add New Song</h2>
+                
+                <div class="form-group">
+                    <label for="song-title">Song Title</label>
+                    <input type="text" id="song-title" placeholder="Enter song title">
+                </div>
+                
+                <div class="form-group">
+                    <label for="song-artist">Artist/Singer</label>
+                    <input type="text" id="song-artist" placeholder="Enter artist name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="song-stars">Lead Stars</label>
+                    <input type="text" id="song-stars" placeholder="Enter lead stars">
+                </div>
+                
+                <div class="form-group">
+                    <label for="song-image">Image URL</label>
+                    <input type="text" id="song-image" placeholder="Enter image URL">
+                </div>
+                
+                <div class="form-group">
+                    <label for="song-url">Song URL (MP3)</label>
+                    <input type="text" id="song-url" placeholder="Enter song URL">
+                </div>
+                
+                <div class="form-group">
+                    <label for="song-category">Category</label>
+                    <select id="song-category">
+                        <option value="bollywood">Bollywood</option>
+                        <option value="punjabi">Punjabi</option>
+                        <option value="marathi">Marathi</option>
+                        <option value="haryana">Haryana</option>
+                        <option value="bhojpuri">Bhojpuri</option>
+                        <option value="indipop">Indipop</option>
+                    </select>
+                </div>
+                
+                <div class="form-actions">
+                    <button class="btn-cancel" id="cancelSong">Cancel</button>
+                    <button class="auth-submit" id="saveSong">Save Song</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Preview Modal -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="image-preview">
+                <img id="previewImage" src="" alt="Song Image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Pagalnew.com</h3>
+                    <p>Your destination for all kinds of music. Stream and download your favorite songs in high quality.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">New Releases</a></li>
+                        <li><a href="#">Popular Songs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Genres</h3>
+                    <ul>
+                        <li><a href="#" data-category="bollywood">Bollywood</a></li>
+                        <li><a href="#" data-category="punjabi">Punjabi</a></li>
+                        <li><a href="#" data-category="marathi">Marathi</a></li>
+                        <li><a href="#" data-category="haryana">Haryana</a></li>
+                        <li><a href="#" data-category="bhojpuri">Bhojpuri</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Pagalnew.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <span id="notification-text"></span>
+    </div>
+
+    <script>
+        // Current user state
+        let currentUser = null;
+        let isAdminMode = false;
+        let editingSongId = null;
+        let currentCategory = 'all';
+        let songs = [];
+        let currentAudio = null;
+        let currentSongIndex = 0;
+        let isPlaying = false;
+
+        // Admin credentials
+        const adminUsername = "admin";
+        const adminPassword = "admin123";
+
+        // DOM Elements
+        const loginModal = document.getElementById('loginModal');
+        const signupModal = document.getElementById('signupModal');
+        const songModal = document.getElementById('songModal');
+        const imageModal = document.getElementById('imageModal');
+        const loginBtn = document.getElementById('loginBtn');
+        const signupBtn = document.getElementById('signupBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const adminBtn = document.getElementById('adminBtn');
+        const userInfo = document.getElementById('userInfo');
+        const userAvatar = document.getElementById('userAvatar');
+        const userName = document.getElementById('userName');
+        const loginSubmit = document.getElementById('loginSubmit');
+        const signupSubmit = document.getElementById('signupSubmit');
+        const addSongBtn = document.getElementById('addSongBtn');
+        const saveSongBtn = document.getElementById('saveSong');
+        const cancelSongBtn = document.getElementById('cancelSong');
+        const closeButtons = document.querySelectorAll('.close-modal');
+        const songList = document.getElementById('songList');
+        const songModalTitle = document.getElementById('songModalTitle');
+        const searchInput = document.getElementById('searchInput');
+        const categoryCards = document.querySelectorAll('.category-card');
+        const navLinks = document.querySelectorAll('nav a');
+        const themeToggle = document.getElementById('themeToggle');
+        const shareBtn = document.getElementById('shareBtn');
+        const rateBtn = document.getElementById('rateBtn');
+        const followBtn = document.getElementById('followBtn');
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notification-text');
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playerTitle = document.getElementById('playerTitle');
+        const playerArtist = document.getElementById('playerArtist');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const closePlayerBtn = document.getElementById('closePlayerBtn');
+        const previewImage = document.getElementById('previewImage');
+        const switchToSignup = document.getElementById('switchToSignup');
+        const switchToLogin = document.getElementById('switchToLogin');
+
+        // Sample songs data
+        const sampleSongs = [
+            { id: 1, title: 'Janaab E Aali - War 2', artist: 'Sachet Tandon, Saaj Bhatt', stars: 'Hrithik Roshan, Kiara Advani', image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bXVzaWMlMjBjb25jZXJ0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', category: 'bollywood' },
+            { id: 2, title: 'Bheegi Saree - Param Sundari', artist: 'Adnan Sami, Shreya Ghoshal', stars: 'Sidharth Malhotra, Janhvi Kapoor', image: 'https://images.unsplash.com/photo-1571330735066-03aaa9429d89?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bXVzaWMlMjBjb25jZXJ0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', category: 'bollywood' },
+            { id: 3, title: 'Pardesiya - Param Sundari', artist: 'Sonu Nigam, Krishnakali Saha', stars: 'Sidharth Malhotra, Janhvi Kapoor', image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG11c2ljJTIwY29uY2VydHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3', category: 'bollywood' },
+            { id: 4, title: 'Aavan Jawan - War 2', artist: 'Arijit Singh, Nikhita Gandhi', stars: 'Hrithik Roshan, Kiara Advani', image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHB1bmhabmklMjBtdXNpY3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3', category: 'bollywood' },
+            { id: 5, title: 'Chandaniya - Master Of Melody', artist: 'Vishal Mishra', stars: 'Ashish Chanchlani, Elli Avrram', image: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHB1bmphYmklMjBtdXNpY3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60', url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3', category: 'indipop' }
+        ];
+
+        // Initialize the page
+        function init() {
+            // Load songs from localStorage or use sample data
+            const savedSongs = localStorage.getItem('songs');
+            if (savedSongs) {
+                songs = JSON.parse(savedSongs);
+            } else {
+                songs = sampleSongs;
+                localStorage.setItem('songs', JSON.stringify(songs));
+            }
+            
+            // Check if user is logged in (from localStorage)
+            const savedUser = localStorage.getItem('currentUser');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                updateUserInterface();
+            }
+            
+            // Check theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-theme');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+            
+            // Render songs
+            renderSongs();
+            
+            // Add event listeners
+            setupEventListeners();
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Category filter
+            categoryCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const category = card.getAttribute('data-category');
+                    filterSongsByCategory(category);
+                });
+            });
+            
+            // Nav category filter
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const category = link.getAttribute('data-category');
+                    filterSongsByCategory(category);
+                });
+            });
+            
+            // Search functionality
+            searchInput.addEventListener('input', () => {
+                filterSongsBySearch(searchInput.value);
+            });
+            
+            // Theme toggle
+            themeToggle.addEventListener('click', toggleTheme);
+            
+            // Share button
+            shareBtn.addEventListener('click', shareWebsite);
+            
+            // Rate button
+            rateBtn.addEventListener('click', rateWebsite);
+            
+            // Follow button
+            followBtn.addEventListener('click', followWebsite);
+            
+            // Audio player controls
+            playPauseBtn.addEventListener('click', togglePlayPause);
+            prevBtn.addEventListener('click', playPreviousSong);
+            nextBtn.addEventListener('click', playNextSong);
+            closePlayerBtn.addEventListener('click', closeAudioPlayer);
+            
+            // Auth modal switching
+            switchToSignup.addEventListener('click', (e) => {
+                e.preventDefault();
+                loginModal.style.display = 'none';
+                signupModal.style.display = 'flex';
+            });
+            
+            switchToLogin.addEventListener('click', (e) => {
+                e.preventDefault();
+                signupModal.style.display = 'none';
+                loginModal.style.display = 'flex';
+            });
+        }
+
+        // Update UI based on login state
+        function updateUserInterface() {
+            if (currentUser) {
+                loginBtn.style.display = 'none';
+                signupBtn.style.display = 'none';
+                userInfo.style.display = 'flex';
+                userName.textContent = currentUser.name;
+                userAvatar.textContent = currentUser.name.charAt(0);
+                
+                // Show admin button only for admin user
+                if (currentUser.username === adminUsername) {
+                    adminBtn.style.display = 'block';
+                } else {
+                    adminBtn.style.display = 'none';
+                }
+            } else {
+                loginBtn.style.display = 'block';
+                signupBtn.style.display = 'block';
+                userInfo.style.display = 'none';
+                disableAdminMode();
+            }
+        }
+
+        // Toggle admin mode
+        function toggleAdminMode() {
+            isAdminMode = !isAdminMode;
+            document.body.classList.toggle('admin-mode', isAdminMode);
+            adminBtn.textContent = isAdminMode ? 'Admin Mode: ON' : 'Admin Mode: OFF';
+        }
+
+        // Disable admin mode
+        function disableAdminMode() {
+            isAdminMode = false;
+            document.body.classList.remove('admin-mode');
+            adminBtn.textContent = 'Admin Mode: OFF';
+        }
+
+        // Render songs based on current category and search
+        function renderSongs() {
+            songList.innerHTML = '';
+            
+            let filteredSongs = songs;
+            
+            // Apply category filter
+            if (currentCategory !== 'all') {
+                filteredSongs = filteredSongs.filter(song => song.category === currentCategory);
+            }
+            
+            // Apply search filter
+            if (searchInput.value) {
+                filteredSongs = filteredSongs.filter(song => 
+                    song.title.toLowerCase().includes(searchInput.value.toLowerCase()) ||
+                    song.artist.toLowerCase().includes(searchInput.value.toLowerCase()) ||
+                    song.stars.toLowerCase().includes(searchInput.value.toLowerCase())
+                );
+            }
+            
+            if (filteredSongs.length === 0) {
+                songList.innerHTML = '<p class="no-songs">No songs found. Try a different search or category.</p>';
+                return;
+            }
+            
+            filteredSongs.forEach((song, index) => {
+                const songCard = document.createElement('div');
+                songCard.className = 'song-card';
+                songCard.setAttribute('data-id', song.id);
+                songCard.innerHTML = `
+                    <div class="song-image">
+                        <img src="${song.image}" alt="${song.title}">
+                    </div>
+                    <div class="song-details">
+                        <h3 class="song-title">${song.title}</h3>
+                        <p class="song-artist">Artist: ${song.artist}</p>
+                        <p class="song-stars">Lead Stars: ${song.stars}</p>
+                        <p class="song-category">Category: ${song.category}</p>
+                        <div class="song-actions">
+                            <button class="listen-btn" data-id="${song.id}">Listen</button>
+                            <a href="${song.url}" class="download-btn" download="${song.title}.mp3">Download</a>
+                            <button class="edit-btn" data-id="${song.id}">Edit</button>
+                        </div>
+                    </div>
+                `;
+                
+                // Add event listener to the edit button
+                songCard.querySelector('.edit-btn').addEventListener('click', (e) => {
+                    const songId = e.target.getAttribute('data-id');
+                    editSong(songId);
+                });
+                
+                // Add event listener to the listen button
+                songCard.querySelector('.listen-btn').addEventListener('click', (e) => {
+                    const songId = e.target.getAttribute('data-id');
+                    playSong(songId, index);
+                });
+                
+                // Add event listener to the download button
+                songCard.querySelector('.download-btn').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    downloadSong(song);
+                });
+                
+                // Add event listener to the image
+                songCard.querySelector('.song-image').addEventListener('click', () => {
+                    previewImage.src = song.image;
+                    imageModal.style.display = 'flex';
+                });
+                
+                songList.appendChild(songCard);
+            });
+        }
+
+        // Filter songs by category
+        function filterSongsByCategory(category) {
+            currentCategory = category;
+            document.querySelectorAll('.category-card, nav a, .footer-column a').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            document.querySelector(`.category-card[data-category="${category}"]`).classList.add('active');
+            document.querySelector(`nav a[data-category="${category}"]`).classList.add('active');
+            document.querySelector(`.footer-column a[data-category="${category}"]`).classList.add('active');
+            
+            renderSongs();
+        }
+
+        // Filter songs by search term
+        function filterSongsBySearch(term) {
+            renderSongs();
+        }
+
+        // Play song
+        function playSong(songId, index) {
+            const song = songs.find(s => s.id == songId);
+            if (!song) return;
+            
+            // Stop current audio if playing
+            if (currentAudio) {
+                currentAudio.pause();
+            }
+            
+            // Create new audio element
+            currentAudio = new Audio(song.url);
+            currentSongIndex = index;
+            
+            // Set player info
+            playerTitle.textContent = song.title;
+            playerArtist.textContent = song.artist;
+            
+            // Show audio player
+            audioPlayer.classList.add('active');
+            
+            // Play audio
+            currentAudio.play();
+            isPlaying = true;
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            
+            // Add event listeners for audio
+            currentAudio.addEventListener('ended', playNextSong);
+        }
+
+        // Toggle play/pause
+        function togglePlayPause() {
+            if (!currentAudio) return;
+            
+            if (isPlaying) {
+                currentAudio.pause();
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+                currentAudio.play();
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            
+            isPlaying = !isPlaying;
+        }
+
+        // Play previous song
+        function playPreviousSong() {
+            let filteredSongs = getFilteredSongs();
+            if (filteredSongs.length === 0) return;
+            
+            currentSongIndex = (currentSongIndex - 1 + filteredSongs.length) % filteredSongs.length;
+            const song = filteredSongs[currentSongIndex];
+            playSong(song.id, currentSongIndex);
+        }
+
+        // Play next song
+        function playNextSong() {
+            let filteredSongs = getFilteredSongs();
+            if (filteredSongs.length === 0) return;
+            
+            currentSongIndex = (currentSongIndex + 1) % filteredSongs.length;
+            const song = filteredSongs[currentSongIndex];
+            playSong(song.id, currentSongIndex);
+        }
+
+        // Close audio player
+        function closeAudioPlayer() {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio = null;
+            }
+            
+            audioPlayer.classList.remove('active');
+            isPlaying = false;
+        }
+
+        // Get filtered songs based on current category and search
+        function getFilteredSongs() {
+            let filteredSongs = songs;
+            
+            // Apply category filter
+            if (currentCategory !== 'all') {
+                filteredSongs = filteredSongs.filter(song => song.category === currentCategory);
+            }
+            
+            // Apply search filter
+            if (searchInput.value) {
+                filteredSongs = filteredSongs.filter(song => 
+                    song.title.toLowerCase().includes(searchInput.value.toLowerCase()) ||
+                    song.artist.toLowerCase().includes(searchInput.value.toLowerCase()) ||
+                    song.stars.toLowerCase().includes(searchInput.value.toLowerCase())
+                );
+            }
+            
+            return filteredSongs;
+        }
+
+        // Download song
+        function downloadSong(song) {
+            showNotification(`Downloading "${song.title}"...`);
+            
+            // Create a temporary link for download
+            const link = document.createElement('a');
+            link.href = song.url;
+            link.download = `${song.title}.mp3`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Show success notification after a delay
+            setTimeout(() => {
+                showNotification(`"${song.title}" downloaded successfully!`);
+            }, 2000);
+        }
+
+        // Toggle theme
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            if (document.body.classList.contains('light-theme')) {
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                showNotification('Light mode enabled');
+            } else {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                showNotification('Dark mode enabled');
+            }
+        }
+
+        // Share website
+        function shareWebsite() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Pagalnew.com',
+                    text: 'Download free music from Pagalnew.com',
+                    url: 'https://pagalnew.com'
+                })
+                .then(() => showNotification('Thanks for sharing!'))
+                .catch(error => showNotification('Error sharing: ' + error));
+            } else {
+                showNotification('Web Share API not supported in your browser');
+            }
+        }
+
+        // Rate website
+        function rateWebsite() {
+            showNotification('Thanks for your rating!');
+        }
+
+        // Follow website
+        function followWebsite() {
+            showNotification('You are now following Pagalnew.com!');
+        }
+
+        // Show notification
+        function showNotification(message) {
+            notificationText.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Open login modal
+        loginBtn.addEventListener('click', () => {
+            loginModal.style.display = 'flex';
+        });
+
+        // Open signup modal
+        signupBtn.addEventListener('click', () => {
+            signupModal.style.display = 'flex';
+        });
+
+        // Login functionality
+        loginSubmit.addEventListener('click', () => {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            
+            // Simple validation
+            if (!username || !password) {
+                showNotification('Please enter both username and password');
+                return;
+            }
+            
+            // Check admin credentials
+            if (username === adminUsername && password === adminPassword) {
+                currentUser = { username: adminUsername, name: 'Admin' };
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                updateUserInterface();
+                loginModal.style.display = 'none';
+                showNotification('Welcome back, Admin!');
+                return;
+            }
+            
+            // Check regular user credentials
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const user = users.find(u => u.username === username && u.password === password);
+            
+            if (user) {
+                currentUser = user;
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                updateUserInterface();
+                loginModal.style.display = 'none';
+                showNotification(`Welcome back, ${user.name}!`);
+            } else {
+                showNotification('Invalid credentials. Please try again.');
+            }
+        });
+
+        // Signup functionality
+        signupSubmit.addEventListener('click', () => {
+            const name = document.getElementById('signup-name').value;
+            const username = document.getElementById('signup-username').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            const dob = document.getElementById('signup-dob').value;
+            
+            // Simple validation
+            if (!name || !username || !email || !password || !dob) {
+                showNotification('Please fill in all fields');
+                return;
+            }
+            
+            // Check if username already exists
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            if (users.some(u => u.username === username)) {
+                showNotification('Username already exists');
+                return;
+            }
+            
+            // Create new user
+            const newUser = { name, username, email, password, dob };
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Auto login the new user
+            currentUser = newUser;
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+            updateUserInterface();
+            signupModal.style.display = 'none';
+            showNotification(`Welcome to Pagalnew.com, ${name}!`);
+        });
+
+        // Logout functionality
+        logoutBtn.addEventListener('click', () => {
+            currentUser = null;
+            localStorage.removeItem('currentUser');
+            updateUserInterface();
+            disableAdminMode();
+            showNotification('You have been logged out.');
+        });
+
+        // Admin mode toggle
+        adminBtn.addEventListener('click', toggleAdminMode);
+
+        // Add new song
+        addSongBtn.addEventListener('click', () => {
+            // Reset form
+            document.getElementById('song-title').value = '';
+            document.getElementById('song-artist').value = '';
+            document.getElementById('song-stars').value = '';
+            document.getElementById('song-image').value = '';
+            document.getElementById('song-url').value = '';
+            document.getElementById('song-category').value = 'bollywood';
+            songModalTitle.textContent = 'Add New Song';
+            editingSongId = null;
+            
+            songModal.style.display = 'flex';
+        });
+
+        // Edit song
+        function editSong(songId) {
+            const song = songs.find(s => s.id == songId);
+            
+            // Fill form with current data
+            document.getElementById('song-title').value = song.title;
+            document.getElementById('song-artist').value = song.artist;
+            document.getElementById('song-stars').value = song.stars;
+            document.getElementById('song-image').value = song.image;
+            document.getElementById('song-url').value = song.url;
+            document.getElementById('song-category').value = song.category;
+            songModalTitle.textContent = 'Edit Song';
+            editingSongId = songId;
+            
+            songModal.style.display = 'flex';
+        }
+
+        // Save song (add or edit)
+        saveSongBtn.addEventListener('click', () => {
+            const title = document.getElementById('song-title').value;
+            const artist = document.getElementById('song-artist').value;
+            const stars = document.getElementById('song-stars').value;
+            const image = document.getElementById('song-image').value;
+            const url = document.getElementById('song-url').value;
+            const category = document.getElementById('song-category').value;
+            
+            if (!title || !artist || !stars || !image || !url || !category) {
+                showNotification('Please fill in all fields');
+                return;
+            }
+            
+            if (editingSongId) {
+                // Edit existing song
+                const songIndex = songs.findIndex(s => s.id == editingSongId);
+                songs[songIndex] = { 
+                    ...songs[songIndex], 
+                    title, artist, stars, image, url, category 
+                };
+                
+                showNotification('Song updated successfully!');
+            } else {
+                // Add new song
+                const newId = Date.now(); // Unique ID
+                const newSong = { 
+                    id: newId, 
+                    title, artist, stars, image, url, category 
+                };
+                
+                songs.push(newSong);
+                showNotification('Song added successfully!');
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('songs', JSON.stringify(songs));
+            
+            // Update UI
+            renderSongs();
+            songModal.style.display = 'none';
+        });
+
+        // Cancel song editing/adding
+        cancelSongBtn.addEventListener('click', () => {
+            songModal.style.display = 'none';
+        });
+
+        // Close modals
+        closeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                loginModal.style.display = 'none';
+                signupModal.style.display = 'none';
+                songModal.style.display = 'none';
+                imageModal.style.display = 'none';
+            });
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+            if (e.target === signupModal) {
+                signupModal.style.display = 'none';
+            }
+            if (e.target === songModal) {
+                songModal.style.display = 'none';
+            }
+            if (e.target === imageModal) {
+                imageModal.style.display = 'none';
+            }
+        });
+
+        // Initialize the application
+        init();
+    </script>
+</body>
+</html>
